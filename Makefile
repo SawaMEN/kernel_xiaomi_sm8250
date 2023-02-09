@@ -692,12 +692,7 @@ KBUILD_CFLAGS	+= $(call cc-disable-warning, format-overflow)
 KBUILD_CFLAGS	+= $(call cc-disable-warning, int-in-bool-context)
 KBUILD_CFLAGS	+= $(call cc-disable-warning, address-of-packed-member)
 
-ifeq ($(CONFIG_CC_OPTIMIZE_FOR_SIZE), y)
-
-KBUILD_CFLAGS   += -O3
-KBUILD_AFLAGS   += -O3
-KBUILD_LDFLAGS  += -O3
-else ifeq ($(cc-name),clang)
+ifeq ($(cc-name),clang)
 
 alioth_flags := := -mcpu=cortex-a77 \
 		 -mllvm -polly \
